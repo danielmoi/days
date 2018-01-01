@@ -41,8 +41,20 @@ class ViewController: UIViewController {
         day.date = date
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         print("day:\(day)")
+
+        // calculate days between today and date
+        let calendar = NSCalendar.current
+        let today = Date()
+        let date2 = calendar.startOfDay(for: date)
         
-        UIApplication.shared.applicationIconBadgeNumber = 10
+        let components = calendar.dateComponents([.day], from: today, to: date2)
+        let difference = components.day!
+        
+        print("difference:\(difference)")
+        
+   
+        // set badge
+        UIApplication.shared.applicationIconBadgeNumber = difference
     }
     
 }

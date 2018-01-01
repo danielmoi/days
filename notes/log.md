@@ -19,13 +19,15 @@ import UserNotifications
 
 And then do the request permission thing (this is NOT done in Info.plist
 Privacy)
-
 ```
 let center = UNUserNotificationCenter.current()
 center.requestAuthorization(options: [.badge]) { (granted, error) in
     // Enable or disable features based on authorization.
 }
 ```
+
+https://stackoverflow.com/questions/37956482/registering-for-push-notifications-in-xcode-8-swift-3-0
+
 
 
 

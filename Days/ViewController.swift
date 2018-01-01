@@ -12,7 +12,14 @@ import UserNotifications
 
 class ViewController: UIViewController {
 
+    // connections
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var daysLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    // properties
+    var difference: Int = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +56,9 @@ class ViewController: UIViewController {
         
         let components = calendar.dateComponents([.day], from: today, to: date2)
         let difference = components.day!
+        
+        let displayDifference = abs(difference)
+        daysLabel.text = String(displayDifference)
         
         print("difference:\(difference)")
         

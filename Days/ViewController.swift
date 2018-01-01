@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import UserNotifications
+
 
 class ViewController: UIViewController {
 
@@ -15,6 +17,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.badge]) { (granted, error) in
+            // Enable or disable features based on authorization.
+        }
+
+        UIApplication.shared.applicationIconBadgeNumber = 1
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,6 +41,8 @@ class ViewController: UIViewController {
         day.date = date
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         print("day:\(day)")
+        
+        UIApplication.shared.applicationIconBadgeNumber = 10
     }
     
 }

@@ -24,11 +24,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="QRx-Me-oHt">
+                                <rect key="frame" x="28" y="191" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="536464989.31921601">
+                                    <!--2018-01-01 02:03:09 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1s-XL-I27">
+                                <rect key="frame" x="170.5" y="507" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="QRx-Me-oHt" firstAttribute="top" secondItem="pRb-is-ZeP" secondAttribute="bottom" constant="50" id="0Jp-oq-msG"/>
+                            <constraint firstItem="QRx-Me-oHt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BcW-vw-Z0F"/>
+                            <constraint firstItem="pRb-is-ZeP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="JLl-mL-USB"/>
                             <constraint firstItem="pRb-is-ZeP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ygl-wA-vhm"/>
+                            <constraint firstItem="A1s-XL-I27" firstAttribute="top" secondItem="QRx-Me-oHt" secondAttribute="bottom" constant="100" id="qLZ-3v-C89"/>
                             <constraint firstItem="pRb-is-ZeP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="qfs-fg-znA"/>
+                            <constraint firstItem="A1s-XL-I27" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vnB-Lv-fdB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

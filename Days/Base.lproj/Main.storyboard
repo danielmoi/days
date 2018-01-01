@@ -101,7 +101,11 @@
                         <viewLayoutGuide key="safeArea" id="OUw-Oc-kN2"/>
                     </view>
                     <navigationItem key="navigationItem" title="Days" id="nlF-IX-FcT">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1iU-YM-sCm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1iU-YM-sCm">
+                            <connections>
+                                <action selector="addTapped:" destination="FCJ-bm-jq9" id="HP6-VP-Ea4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="IfV-dB-8Gf" id="aVj-fH-h1w"/>

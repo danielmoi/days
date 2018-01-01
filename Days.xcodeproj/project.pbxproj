@@ -60,9 +60,9 @@
 			children = (
 				1EB491F21FF76DE40092790D /* AppDelegate.swift */,
 				1EB491F41FF76DE40092790D /* DayViewController.swift */,
+				1EB492501FF9E90C0092790D /* DaysViewController.swift */,
 				1EB492291FF857540092790D /* Assets.xcassets */,
 				1EB491F61FF76DE40092790D /* Main.storyboard */,
-				1EB492501FF9E90C0092790D /* DaysViewController.swift */,
 				1EB491FE1FF76DE40092790D /* LaunchScreen.storyboard */,
 				1EB492011FF76DE40092790D /* Info.plist */,
 				1EB491F91FF76DE40092790D /* Days.xcdatamodeld */,

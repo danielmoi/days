@@ -51,7 +51,25 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let day = days[indexPath.row]
+        print("day:\(day)")
+        performSegue(withIdentifier: "viewDaySegue", sender: day)
+    }
+    
 
+    @IBAction func addTapped(_ sender: Any) {
+        performSegue(withIdentifier: "viewDaySegue", sender: nil )
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "viewDaySegue") {
+            let nextVC = segue.destination as! DayViewController
+            nextVC.day = sender as? Day
+        }
+        
+        
+    }
     /*
     // MARK: - Navigation
 

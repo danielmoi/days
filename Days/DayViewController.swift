@@ -19,11 +19,22 @@ class DayViewController: UIViewController {
     
     // properties
     var difference: Int = 0
+    var day: Day? = nil
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if (day == nil) {
+            print("NIL")
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            
+            day = Day(context: context)
+        }
+        
+        nameTextField.text = day!.name
+        datePicker.date = day!.date!
         
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.badge]) { (granted, error) in
@@ -39,14 +50,14 @@ class DayViewController: UIViewController {
     }
 
     @IBAction func saveTapped(_ sender: Any) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let day = Day(context: context)
+//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//
+//        let day = Day(context: context)
         
         let date = datePicker.date
         
-        day.date = date
-        day.name = nameTextField.text
+        day!.date = date
+        day!.name = nameTextField.text
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         print("day:\(day)")
 

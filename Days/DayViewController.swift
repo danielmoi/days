@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DayViewController.swift
 //  Days
 //
 //  Created by Daniel Moi on 30/12/17.
@@ -10,7 +10,7 @@ import UIKit
 import UserNotifications
 
 
-class ViewController: UIViewController {
+class DayViewController: UIViewController {
 
     // connections
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -46,6 +46,7 @@ class ViewController: UIViewController {
         let date = datePicker.date
         
         day.date = date
+        day.name = nameTextField.text
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         print("day:\(day)")
 
@@ -64,7 +65,7 @@ class ViewController: UIViewController {
         
    
         // set badge
-        UIApplication.shared.applicationIconBadgeNumber = difference
+        UIApplication.shared.applicationIconBadgeNumber = displayDifference
     }
     
 }

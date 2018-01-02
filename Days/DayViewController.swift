@@ -36,10 +36,15 @@ class DayViewController: UIViewController {
         }
         
         nameTextField.text = day!.name
-        datePicker.date = day!.date!
+        
+        
+        var date = Date()
+        if day!.date != nil {
+            date = day!.date!
+        }
         
         // calculate days between today and date
-        let diffData = getDiffData(date: day!.date!)
+        let diffData = getDiffData(date: date)
         diffInt = diffData.diffInt
         daysLabel.text = String(diffInt)
         diffDisplayLabel.text = diffData.diffDisplay
@@ -75,6 +80,9 @@ class DayViewController: UIViewController {
    
         // set badge
         UIApplication.shared.applicationIconBadgeNumber = diffInt
+        
+        // Go back to list view
+        navigationController!.popViewController(animated: true)
     }
     
 }

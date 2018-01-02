@@ -75,8 +75,6 @@ class DayViewController: UIViewController {
         day!.date = date
         day!.name = nameTextField.text
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        print("day:\(day)")
-
    
         // set badge
         UIApplication.shared.applicationIconBadgeNumber = diffInt
@@ -85,5 +83,13 @@ class DayViewController: UIViewController {
         navigationController!.popViewController(animated: true)
     }
     
+    @IBAction func deleteTapped(_ sender: Any) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(day!)
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        navigationController!.popViewController(animated: true)
+    }
 }
 

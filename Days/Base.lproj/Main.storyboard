@@ -55,18 +55,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olC-6p-Pgt">
+                                <rect key="frame" x="310" y="616" width="40" height="56"/>
+                                <state key="normal" image="trash">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F7H-G3-TrZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2lt-xB-Q8j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ATC-hI-7fK"/>
                             <constraint firstItem="QRx-Me-oHt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BcW-vw-Z0F"/>
                             <constraint firstItem="H2m-FX-AgF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MX9-oA-u0m"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="olC-6p-Pgt" secondAttribute="trailing" constant="25" id="Urk-Tm-ukm"/>
                             <constraint firstItem="pRb-is-ZeP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ygl-wA-vhm"/>
                             <constraint firstItem="2lt-xB-Q8j" firstAttribute="top" secondItem="pRb-is-ZeP" secondAttribute="bottom" constant="25" id="dWb-5r-6e2"/>
                             <constraint firstItem="H2m-FX-AgF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="gnd-FI-Be8"/>
                             <constraint firstItem="pRb-is-ZeP" firstAttribute="top" secondItem="H2m-FX-AgF" secondAttribute="bottom" constant="25" id="mbi-z8-rI8"/>
                             <constraint firstItem="QRx-Me-oHt" firstAttribute="top" secondItem="2lt-xB-Q8j" secondAttribute="bottom" constant="50" id="p5x-d1-qSB"/>
                             <constraint firstItem="A1s-XL-I27" firstAttribute="top" secondItem="QRx-Me-oHt" secondAttribute="bottom" constant="75" id="qLZ-3v-C89"/>
+                            <constraint firstItem="olC-6p-Pgt" firstAttribute="top" secondItem="QRx-Me-oHt" secondAttribute="bottom" constant="75" id="s9a-Lo-Jdh"/>
                             <constraint firstItem="A1s-XL-I27" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vnB-Lv-fdB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -139,4 +150,7 @@
             <point key="canvasLocation" x="282" y="41"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="trash" width="40" height="56"/>
+    </resources>
 </document>

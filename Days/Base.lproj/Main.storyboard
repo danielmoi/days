@@ -38,6 +38,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="536464989.31921601">
                                     <!--2018-01-01 02:03:09 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="datePickerChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="7ym-2p-bza"/>
+                                </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1s-XL-I27">
                                 <rect key="frame" x="170.5" y="616" width="34" height="30"/>

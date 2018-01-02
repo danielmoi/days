@@ -30,4 +30,9 @@ https://stackoverflow.com/questions/37956482/registering-for-push-notifications-
 
 
 
+## Date difference
+Need to use NSCalendar
+Extract out into helper function
+Use a tuple
+
 

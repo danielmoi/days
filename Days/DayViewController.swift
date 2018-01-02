@@ -49,8 +49,17 @@ class DayViewController: UIViewController {
 
         UIApplication.shared.applicationIconBadgeNumber = 1
     }
+    
+    
 
-
+    @IBAction func datePickerChanged(_ sender: Any) {
+        let date = datePicker.date
+        // calculate days between today and date
+        let diffData = getDiffData(date: date)
+        diffInt = diffData.diffInt
+        daysLabel.text = String(diffInt)
+    }
+    
     @IBAction func saveTapped(_ sender: Any) {
         let date = datePicker.date
         

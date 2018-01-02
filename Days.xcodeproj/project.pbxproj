@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E93CCF31FFABF0C003CAD48 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93CCF21FFABF0C003CAD48 /* DateHelper.swift */; };
 		1EB491F31FF76DE40092790D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB491F21FF76DE40092790D /* AppDelegate.swift */; };
 		1EB491F51FF76DE40092790D /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB491F41FF76DE40092790D /* DayViewController.swift */; };
 		1EB491F81FF76DE40092790D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EB491F61FF76DE40092790D /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E93CCF21FFABF0C003CAD48 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		1EB491EF1FF76DE40092790D /* Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EB491F21FF76DE40092790D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EB491F41FF76DE40092790D /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				1EB492501FF9E90C0092790D /* DaysViewController.swift */,
 				1EB492291FF857540092790D /* Assets.xcassets */,
 				1EB491F61FF76DE40092790D /* Main.storyboard */,
+				1E93CCF21FFABF0C003CAD48 /* DateHelper.swift */,
 				1EB491FE1FF76DE40092790D /* LaunchScreen.storyboard */,
 				1EB492011FF76DE40092790D /* Info.plist */,
 				1EB491F91FF76DE40092790D /* Days.xcdatamodeld */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E93CCF31FFABF0C003CAD48 /* DateHelper.swift in Sources */,
 				1EB491F51FF76DE40092790D /* DayViewController.swift in Sources */,
 				1EB491F31FF76DE40092790D /* AppDelegate.swift in Sources */,
 				1EB492511FF9E90C0092790D /* DaysViewController.swift in Sources */,

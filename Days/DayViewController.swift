@@ -18,7 +18,7 @@ class DayViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     
     // properties
-    var difference: Int = 0
+    var diffInt: Int = 0
     var day: Day? = nil
     
     
@@ -36,6 +36,12 @@ class DayViewController: UIViewController {
         nameTextField.text = day!.name
         datePicker.date = day!.date!
         
+        // calculate days between today and date
+        let diffData = getDiffData(date: day!.date!)
+        diffInt = diffData.diffInt
+        daysLabel.text = String(diffInt)
+        
+        // authorization for notifications
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.badge]) { (granted, error) in
             // Enable or disable features based on authorization.
@@ -44,16 +50,8 @@ class DayViewController: UIViewController {
         UIApplication.shared.applicationIconBadgeNumber = 1
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     @IBAction func saveTapped(_ sender: Any) {
-//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//
-//        let day = Day(context: context)
-        
         let date = datePicker.date
         
         day!.date = date
@@ -61,22 +59,9 @@ class DayViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         print("day:\(day)")
 
-        // calculate days between today and date
-        let calendar = NSCalendar.current
-        let today = Date()
-        let date2 = calendar.startOfDay(for: date)
-        
-        let components = calendar.dateComponents([.day], from: today, to: date2)
-        let difference = components.day!
-        
-        let displayDifference = abs(difference)
-        daysLabel.text = String(displayDifference)
-        
-        print("difference:\(difference)")
-        
    
         // set badge
-        UIApplication.shared.applicationIconBadgeNumber = displayDifference
+        UIApplication.shared.applicationIconBadgeNumber = diffInt
     }
     
 }

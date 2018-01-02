@@ -70,6 +70,20 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let day = days[indexPath.row]
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            context.delete(day)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
+            do {
+                days = try context.fetch(Day.fetchRequest())
+                tableView.reloadData()
+            } catch {}
+        }
+    }
     /*
     // MARK: - Navigation
 

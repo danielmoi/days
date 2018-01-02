@@ -18,7 +18,7 @@ func getDiffInt(date: Date) -> Int {
     let components = calendar.dateComponents([.day], from: startOfToday, to: startOfDate)
     let difference = components.day!
     print("difference:\(difference)")
-    return abs(difference)
+    return difference
 }
 
 func getDiffDisplay(difference: Int) -> String {
@@ -29,8 +29,9 @@ func getDiffDisplay(difference: Int) -> String {
 }
 
 func getDiffData(date: Date) -> (diffInt: Int, diffDisplay: String) {
-    let diffInt = getDiffInt(date: date)
-    let diffDisplay = getDiffDisplay(difference: diffInt)
+    let difference = getDiffInt(date: date)
+    let diffInt = abs(difference)
+    let diffDisplay = "days \(getDiffDisplay(difference: difference))"
     return (diffInt, diffDisplay)
 }
 

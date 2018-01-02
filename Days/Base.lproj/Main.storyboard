@@ -74,6 +74,7 @@
                     <connections>
                         <outlet property="datePicker" destination="QRx-Me-oHt" id="FPN-bW-Ewk"/>
                         <outlet property="daysLabel" destination="H2m-FX-AgF" id="lQe-Ct-m7n"/>
+                        <outlet property="diffDisplayLabel" destination="pRb-is-ZeP" id="5N8-Ax-Q19"/>
                         <outlet property="nameTextField" destination="2lt-xB-Q8j" id="2FK-6n-FLz"/>
                     </connections>
                 </viewController>

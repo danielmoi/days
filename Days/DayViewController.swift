@@ -16,9 +16,11 @@ class DayViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var diffDisplayLabel: UILabel!
     
     // properties
     var diffInt: Int = 0
+    var diffDisplay: String = ""
     var day: Day? = nil
     
     
@@ -40,6 +42,7 @@ class DayViewController: UIViewController {
         let diffData = getDiffData(date: day!.date!)
         diffInt = diffData.diffInt
         daysLabel.text = String(diffInt)
+        diffDisplayLabel.text = diffData.diffDisplay
         
         // authorization for notifications
         let center = UNUserNotificationCenter.current()
@@ -58,6 +61,7 @@ class DayViewController: UIViewController {
         let diffData = getDiffData(date: date)
         diffInt = diffData.diffInt
         daysLabel.text = String(diffInt)
+        diffDisplayLabel.text = diffData.diffDisplay
     }
     
     @IBAction func saveTapped(_ sender: Any) {

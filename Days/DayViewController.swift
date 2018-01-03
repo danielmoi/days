@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import CoreData
 
 
 class DayViewController: UIViewController {
@@ -17,6 +18,7 @@ class DayViewController: UIViewController {
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var diffDisplayLabel: UILabel!
+    @IBOutlet weak var defaultSwitch: UISwitch!
     
     // properties
     var diffInt: Int = 0
@@ -35,6 +37,12 @@ class DayViewController: UIViewController {
             day = Day(context: context)
         }
         
+        let days = getDefaultDays()
+        unsetDefaultDays(days: days)
+        
+        let magic = getDefaultDays()
+        print("magic: \(magic)")
+        
         nameTextField.text = day!.name
         
         
@@ -48,6 +56,7 @@ class DayViewController: UIViewController {
         diffInt = diffData.diffInt
         daysLabel.text = String(diffInt)
         diffDisplayLabel.text = diffData.diffDisplay
+        defaultSwitch.isOn = day!.isDefault
         
         // authorization for notifications
         let center = UNUserNotificationCenter.current()
@@ -74,6 +83,20 @@ class DayViewController: UIViewController {
         
         day!.date = date
         day!.name = nameTextField.text
+        
+        
+        if defaultSwitch.isOn {
+            print("SETTING TO DEFAULT")
+            let defaultDays = getDefaultDays()
+            print("&&&defaultDays: \(defaultDays)")
+            unsetDefaultDays(days: defaultDays)
+
+        } else {
+            print("NAH NOTHING INTERESTING...")
+
+        }
+        day!.isDefault = defaultSwitch.isOn
+        
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
    
         // set badge
@@ -90,6 +113,44 @@ class DayViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         navigationController!.popViewController(animated: true)
+    }
+    
+    @IBAction func switchTapped(_ sender: Any) {
+        let value = defaultSwitch.isOn
+        print("++++++++: \(value)")
+        
+    }
+    
+    func getDefaultDays() -> [Day] {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let fetchRequest = Day.fetchRequest() as NSFetchRequest<Day>
+        
+        fetchRequest.predicate = NSPredicate(format: "isDefault == %@", NSNumber(booleanLiteral: true))
+        
+        do {
+            let days = try context.fetch(fetchRequest)
+            
+            return days
+        } catch {}
+        return []
+    }
+    
+    func unsetDefaultDays(days: [Day]) {
+        print("-- days: \(days)")
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        let request = NSBatchUpdateRequest(entityName: "Day")
+        request.propertiesToUpdate = ["isDefault" : false]
+        do {
+            let result = try context.execute(request) as? NSBatchUpdateResult
+            print("********* \(result)")
+
+        } catch {
+
+            print("Failed to execute request: \(error)")
+
+        }
     }
 }
 

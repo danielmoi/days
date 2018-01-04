@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import UserNotifications
+
 import CoreData
 
 
@@ -58,11 +58,7 @@ class DayViewController: UIViewController {
         diffDisplayLabel.text = diffData.diffDisplay
         defaultSwitch.isOn = day!.isDefault
         
-        // authorization for notifications
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.badge]) { (granted, error) in
-            // Enable or disable features based on authorization.
-        }
+
 
         UIApplication.shared.applicationIconBadgeNumber = 1
     }
@@ -88,8 +84,8 @@ class DayViewController: UIViewController {
         if defaultSwitch.isOn {
             print("SETTING TO DEFAULT")
             let defaultDays = getDefaultDays()
-            print("&&&defaultDays: \(defaultDays)")
-            unsetDefaultDays(days: defaultDays)
+//            print("&&&defaultDays: \(defaultDays)")
+//            unsetDefaultDays(days: defaultDays)
 
         } else {
             print("NAH NOTHING INTERESTING...")
@@ -99,6 +95,10 @@ class DayViewController: UIViewController {
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
    
+        
+        let defaults = UserDefaults.standard
+        defaults.set(diffInt, forKey: "diffInt")
+        
         // set badge
         UIApplication.shared.applicationIconBadgeNumber = diffInt
         
@@ -144,7 +144,7 @@ class DayViewController: UIViewController {
         request.propertiesToUpdate = ["isDefault" : false]
         do {
             let result = try context.execute(request) as? NSBatchUpdateResult
-            print("********* \(result)")
+            print("********* RESULT: \(result)")
 
         } catch {
 

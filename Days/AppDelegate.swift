@@ -19,8 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let magic = UserDefaults.standard.integer(forKey: "diffInt")
-        print("^^^^^^^^^^ MAGIC: \(magic)")
         
         // authorization for notifications
         let center = UNUserNotificationCenter.current()
@@ -29,8 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         triggerNotification()
-        
-        
         
         return true
     }

@@ -17,6 +17,7 @@ import UserNotifications
  https://www.hackingwithswift.com/example-code/system/how-to-set-local-alerts-using-unnotificationcenter
  */
 
+// Move to save?
 
 func triggerNotification(){
     print("IN TRIGGER NOTIFICATION")
@@ -34,6 +35,6 @@ func triggerNotification(){
     // Schedule the notification.
     let center = UNUserNotificationCenter.current()
     center.add(request) { (error) in
-        print("Error in scheduling: \(error!)")
+        print("Error in scheduling: \(error)")
     }
 }

@@ -37,30 +37,24 @@ class DayViewController: UIViewController {
             day = Day(context: context)
         }
         
-        let days = getDefaultDays()
-        unsetDefaultDays(days: days)
-        
-        let magic = getDefaultDays()
-        print("magic: \(magic)")
-        
         nameTextField.text = day!.name
         
         
-        var date = Date()
+        var date: Date = Date()
+        print("DATE: \(day!.date!)")
         if day!.date != nil {
             date = day!.date!
         }
         
         // calculate days between today and date
         let diffData = getDiffData(date: date)
+        print("DIFF DATA\(diffData)")
         diffInt = diffData.diffInt
         daysLabel.text = String(diffInt)
         diffDisplayLabel.text = diffData.diffDisplay
         defaultSwitch.isOn = day!.isDefault
         
-
-
-        UIApplication.shared.applicationIconBadgeNumber = 1
+        datePicker.date = date
     }
     
     
@@ -94,10 +88,6 @@ class DayViewController: UIViewController {
         day!.isDefault = defaultSwitch.isOn
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
-   
-        
-        let defaults = UserDefaults.standard
-        defaults.set(diffInt, forKey: "diffInt")
         
         // set badge
         UIApplication.shared.applicationIconBadgeNumber = diffInt

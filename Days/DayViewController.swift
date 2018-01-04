@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 
-class DayViewController: UIViewController {
+class DayViewController: UIViewController, UITextFieldDelegate {
 
     // connections
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -26,9 +26,12 @@ class DayViewController: UIViewController {
     var day: Day? = nil
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        nameTextField.delegate = self
         
         if (day == nil) {
             print("NIL")
@@ -41,7 +44,7 @@ class DayViewController: UIViewController {
         
         
         var date: Date = Date()
-        print("DATE: \(day!.date!)")
+        
         if day!.date != nil {
             date = day!.date!
         }
@@ -68,6 +71,8 @@ class DayViewController: UIViewController {
         diffDisplayLabel.text = diffData.diffDisplay
     }
     
+    
+    
     @IBAction func saveTapped(_ sender: Any) {
         let date = datePicker.date
         
@@ -78,8 +83,8 @@ class DayViewController: UIViewController {
         if defaultSwitch.isOn {
             print("SETTING TO DEFAULT")
             let defaultDays = getDefaultDays()
-//            print("&&&defaultDays: \(defaultDays)")
-//            unsetDefaultDays(days: defaultDays)
+            print("&&&defaultDays: \(defaultDays)")
+            unsetDefaultDays(days: defaultDays)
 
         } else {
             print("NAH NOTHING INTERESTING...")
@@ -109,6 +114,11 @@ class DayViewController: UIViewController {
         let value = defaultSwitch.isOn
         print("++++++++: \(value)")
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true;
     }
     
     func getDefaultDays() -> [Day] {

@@ -25,9 +25,6 @@ class DayViewController: UIViewController, UITextFieldDelegate {
     var diffDisplay: String = ""
     var day: Day? = nil
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -80,13 +77,9 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         
         
         if defaultSwitch.isOn {
-            print("SETTING TO DEFAULT")
-            let defaultDays = getDefaultDays()
-            print("&&&defaultDays: \(defaultDays)")
             let user = getPrimaryUser()
             user?.badgeDayId = day?.id
             print("PRIMARY USER: \(user)")
-//            unsetDefaultDays(days: defaultDays)
             
         } else {
             print("NAH NOTHING INTERESTING...")
@@ -112,47 +105,11 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         navigationController!.popViewController(animated: true)
     }
     
-    @IBAction func switchTapped(_ sender: Any) {
-        let value = defaultSwitch.isOn
-        print("++++++++: \(value)")
-        
-    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true;
     }
     
-    func getDefaultDays() -> [Day] {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let fetchRequest = Day.fetchRequest() as NSFetchRequest<Day>
-        
-        fetchRequest.predicate = NSPredicate(format: "isDefault == %@", NSNumber(booleanLiteral: true))
-        
-        do {
-            let days = try context.fetch(fetchRequest)
-            
-            return days
-        } catch {}
-        return []
-    }
-    
-    func unsetDefaultDays(days: [Day]) {
-        print("-- days: \(days)")
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let request = NSBatchUpdateRequest(entityName: "Day")
-        request.propertiesToUpdate = ["isDefault" : false]
-        do {
-            let result = try context.execute(request) as? NSBatchUpdateResult
-            print("********* RESULT: \(result)")
-            
-        } catch {
-            
-            print("Failed to execute request: \(error)")
-            
-        }
-    }
 }
 

@@ -17,16 +17,18 @@ import UserNotifications
  https://www.hackingwithswift.com/example-code/system/how-to-set-local-alerts-using-unnotificationcenter
  */
 
-// Move to save?
+// 1. Move to save on selecting DEFAULT
+// 2. Make the badge increment or decrement
+// 3. Handle "out of range" - it's past = set to "0"
 
-func triggerNotification(){
+func triggerNotification() {
     print("IN TRIGGER NOTIFICATION")
     var dateComponents = DateComponents()
     dateComponents.hour = 0
     dateComponents.minute = 0
     
     let content = UNMutableNotificationContent()
-    content.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber;
+    content.badge = getBadgeNumber() as NSNumber;
     content.categoryIdentifier = "badgeIdentifier"
     
     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
@@ -37,4 +39,23 @@ func triggerNotification(){
     center.add(request) { (error) in
         print("Error in scheduling: \(error)")
     }
+}
+
+func getBadgeNumber() -> Int {
+    print("****************")
+    print("GETTING BADGE NUMBER!!!!!!!!!!")
+    let user = getPrimaryUser()
+    let dayId = user?.badgeDayId
+    if !(dayId != nil) {
+        return 0
+    }
+    let badgeDay = getBadgeDay(dayId: dayId!)
+    let badgeDate = badgeDay?.date
+    let diffData = getDiffData(date: badgeDate!)
+    let diffInt = diffData.diffInt
+    print("****************")
+    print("diffData:\(diffData)")
+    print("diffInt:\(diffInt)")
+    return diffInt
+    
 }

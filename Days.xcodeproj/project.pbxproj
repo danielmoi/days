@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E1ACA911FFF735500CA45E8 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1ACA901FFF735500CA45E8 /* UserHelper.swift */; };
 		1E56906D1FFD90C2005460F0 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E56906C1FFD90C2005460F0 /* NotificationHelper.swift */; };
 		1E93CCF31FFABF0C003CAD48 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93CCF21FFABF0C003CAD48 /* DateHelper.swift */; };
 		1EB491F31FF76DE40092790D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB491F21FF76DE40092790D /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E1ACA901FFF735500CA45E8 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		1E56906C1FFD90C2005460F0 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		1E93CCF21FFABF0C003CAD48 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		1EB491EF1FF76DE40092790D /* Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +70,7 @@
 				1EB492291FF857540092790D /* Assets.xcassets */,
 				1EB491F61FF76DE40092790D /* Main.storyboard */,
 				1E56906C1FFD90C2005460F0 /* NotificationHelper.swift */,
+				1E1ACA901FFF735500CA45E8 /* UserHelper.swift */,
 				1E93CCF21FFABF0C003CAD48 /* DateHelper.swift */,
 				1EB491FE1FF76DE40092790D /* LaunchScreen.storyboard */,
 				1EB492011FF76DE40092790D /* Info.plist */,
@@ -150,6 +153,7 @@
 			files = (
 				1E56906D1FFD90C2005460F0 /* NotificationHelper.swift in Sources */,
 				1E93CCF31FFABF0C003CAD48 /* DateHelper.swift in Sources */,
+				1E1ACA911FFF735500CA45E8 /* UserHelper.swift in Sources */,
 				1EB491F51FF76DE40092790D /* DayViewController.swift in Sources */,
 				1EB491F31FF76DE40092790D /* AppDelegate.swift in Sources */,
 				1EB492511FF9E90C0092790D /* DaysViewController.swift in Sources */,

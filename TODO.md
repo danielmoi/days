@@ -9,6 +9,7 @@
 - [ ] Update badge when it turns midnight
 - [ ] Implement toggle UI for setting default
 - [ ] Ensure only one default is set
+- [ ] Increment / decrement badge number
 
 
 ### Multiple days functionality

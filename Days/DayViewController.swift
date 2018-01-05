@@ -12,7 +12,7 @@ import CoreData
 
 
 class DayViewController: UIViewController, UITextFieldDelegate {
-
+    
     // connections
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var daysLabel: UILabel!
@@ -33,21 +33,20 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         nameTextField.delegate = self
         
+        let user = getPrimaryUser()
+        
         if (day == nil) {
             print("NIL")
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             
             day = Day(context: context)
+            day!.date = Date()
+            day!.id = UUID()
         }
         
         nameTextField.text = day!.name
         
-        
-        var date: Date = Date()
-        
-        if day!.date != nil {
-            date = day!.date!
-        }
+        let date = day!.date!
         
         // calculate days between today and date
         let diffData = getDiffData(date: date)
@@ -55,13 +54,13 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         diffInt = diffData.diffInt
         daysLabel.text = String(diffInt)
         diffDisplayLabel.text = diffData.diffDisplay
-        defaultSwitch.isOn = day!.isDefault
+        defaultSwitch.isOn = user?.badgeDayId == day!.id
         
         datePicker.date = date
     }
     
     
-
+    
     @IBAction func datePickerChanged(_ sender: Any) {
         let date = datePicker.date
         // calculate days between today and date
@@ -84,11 +83,14 @@ class DayViewController: UIViewController, UITextFieldDelegate {
             print("SETTING TO DEFAULT")
             let defaultDays = getDefaultDays()
             print("&&&defaultDays: \(defaultDays)")
-            unsetDefaultDays(days: defaultDays)
-
+            let user = getPrimaryUser()
+            user?.badgeDayId = day?.id
+            print("PRIMARY USER: \(user)")
+//            unsetDefaultDays(days: defaultDays)
+            
         } else {
             print("NAH NOTHING INTERESTING...")
-
+            
         }
         day!.isDefault = defaultSwitch.isOn
         
@@ -139,17 +141,17 @@ class DayViewController: UIViewController, UITextFieldDelegate {
     func unsetDefaultDays(days: [Day]) {
         print("-- days: \(days)")
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+        
         let request = NSBatchUpdateRequest(entityName: "Day")
         request.propertiesToUpdate = ["isDefault" : false]
         do {
             let result = try context.execute(request) as? NSBatchUpdateResult
             print("********* RESULT: \(result)")
-
+            
         } catch {
-
+            
             print("Failed to execute request: \(error)")
-
+            
         }
     }
 }

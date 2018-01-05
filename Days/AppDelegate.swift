@@ -26,6 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Enable or disable features based on authorization.
         }
         
+        let user = getPrimaryUser()
+        if !(user != nil) {
+            createPrimaryUser()
+        }
+        
         triggerNotification()
         
         return true

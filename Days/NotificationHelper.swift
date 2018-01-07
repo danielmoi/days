@@ -20,30 +20,54 @@ import UserNotifications
 // 1. Move to save on selecting DEFAULT
 // 2. Make the badge increment or decrement
 // 3. Handle "out of range" - it's past = set to "0"
+// 4. Cancel all previous notifications?
 
-func triggerNotification() {
-    print("IN TRIGGER NOTIFICATION")
+/*
+ just set it to ADD or MINUS 1 depending on whether we are doing days until or days since
+ 
+ the counter will stop at zero AUTOMATICALLY because it will not show negative numbers
+ 
+ can we do content.badge = {
+    // a function?
+ }
+ */
+
+// Trigger when a day is saved as the default
+func triggerBadgeNotification(direction: String) {
     var dateComponents = DateComponents()
-    dateComponents.hour = 0
-    dateComponents.minute = 0
+    dateComponents.hour = 11
+    dateComponents.minute = 37
     
     let content = UNMutableNotificationContent()
-    content.badge = getBadgeNumber() as NSNumber;
+    
+    if direction == "days since" {
+        print("SINCE")
+        content.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
+    } else if direction == "days until" {
+        print("UNTIL")
+        content.badge = UIApplication.shared.applicationIconBadgeNumber - 1 as NSNumber
+    }
+    
     content.categoryIdentifier = "badgeIdentifier"
+    content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
+    
     
     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+    
+    // no need to clear all pending notifications because we are overwriting the "Daily" notification
     let request = UNNotificationRequest.init(identifier: "Daily", content: content, trigger: trigger)
     
     // Schedule the notification.
     let center = UNUserNotificationCenter.current()
+    
+    
     center.add(request) { (error) in
         print("Error in scheduling: \(error)")
     }
 }
 
+// Not using this function - delete if not used when app is finished
 func getBadgeNumber() -> Int {
-    print("****************")
-    print("GETTING BADGE NUMBER!!!!!!!!!!")
     let user = getPrimaryUser()
     let dayId = user?.badgeDayId
     if !(dayId != nil) {
@@ -53,9 +77,6 @@ func getBadgeNumber() -> Int {
     let badgeDate = badgeDay?.date
     let diffData = getDiffData(date: badgeDate!)
     let diffInt = diffData.diffInt
-    print("****************")
-    print("diffData:\(diffData)")
-    print("diffInt:\(diffInt)")
     return diffInt
     
 }

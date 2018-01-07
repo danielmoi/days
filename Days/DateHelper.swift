@@ -21,18 +21,20 @@ func getDiffInt(date: Date) -> Int {
     return difference
 }
 
-func getDiffDisplay(difference: Int) -> String {
+func getDiffDirection(difference: Int) -> String {
     if difference > 0 {
         return "until"
     }
     return "since"
 }
 
-func getDiffData(date: Date) -> (diffInt: Int, diffDisplay: String) {
+
+
+func getDiffData(date: Date) -> (diffInt: Int, diffDirection: String) {
     let difference = getDiffInt(date: date)
     let diffInt = abs(difference)
-    let diffDisplay = "days \(getDiffDisplay(difference: difference))"
-    return (diffInt, diffDisplay)
+    let diffDirection = "days \(getDiffDirection(difference: difference))"
+    return (diffInt, diffDirection)
 }
 
 // have 2 separate functions

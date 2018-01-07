@@ -26,12 +26,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Enable or disable features based on authorization.
         }
         
+        center.getPendingNotificationRequests { (request) in
+            print("request ***********:\(request)")
+        }
+        
         let user = getPrimaryUser()
         if !(user != nil) {
             createPrimaryUser()
         }
         
-        triggerNotification()
+        
         
         return true
     }

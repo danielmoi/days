@@ -17,13 +17,14 @@ class DayViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var diffDisplayLabel: UILabel!
+    @IBOutlet weak var diffDirectionLabel: UILabel!
     @IBOutlet weak var defaultSwitch: UISwitch!
     
     // properties
     var diffInt: Int = 0
-    var diffDisplay: String = ""
+    var diffDirection: String = ""
     var day: Day? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +50,9 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         let diffData = getDiffData(date: date)
         print("DIFF DATA\(diffData)")
         diffInt = diffData.diffInt
+        diffDirection = diffData.diffDirection
         daysLabel.text = String(diffInt)
-        diffDisplayLabel.text = diffData.diffDisplay
+        diffDirectionLabel.text = diffData.diffDirection
         defaultSwitch.isOn = user?.badgeDayId == day!.id
         
         datePicker.date = date
@@ -63,8 +65,9 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         // calculate days between today and date
         let diffData = getDiffData(date: date)
         diffInt = diffData.diffInt
+        diffDirection = diffData.diffDirection
         daysLabel.text = String(diffInt)
-        diffDisplayLabel.text = diffData.diffDisplay
+        diffDirectionLabel.text = diffData.diffDirection
     }
     
     
@@ -91,6 +94,10 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         
         // set badge
         UIApplication.shared.applicationIconBadgeNumber = diffInt
+        
+        // trigger notification
+        print("diffDirection: \(diffDirection)")
+        triggerBadgeNotification(direction: diffDirection)
         
         // Go back to list view
         navigationController!.popViewController(animated: true)

@@ -9,28 +9,10 @@
 
 import UIKit
 import Foundation
-//    Notification become independent from UIKit
+
+// Notification have been extracted out of UIKit
 import UserNotifications
 
-/*
- https://stackoverflow.com/questions/37938771/uilocalnotification-is-deprecated-in-ios10
- https://www.hackingwithswift.com/example-code/system/how-to-set-local-alerts-using-unnotificationcenter
- */
-
-// 1. Move to save on selecting DEFAULT
-// 2. Make the badge increment or decrement
-// 3. Handle "out of range" - it's past = set to "0"
-// 4. Cancel all previous notifications?
-
-/*
- just set it to ADD or MINUS 1 depending on whether we are doing days until or days since
- 
- the counter will stop at zero AUTOMATICALLY because it will not show negative numbers
- 
- can we do content.badge = {
-    // a function?
- }
- */
 
 // Trigger when a day is saved as the default
 func triggerBadgeNotification(direction: String) {

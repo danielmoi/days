@@ -28,13 +28,13 @@ class DayViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         nameTextField.delegate = self
         
         let user = getPrimaryUser()
         
         if (day == nil) {
-            print("NIL")
+            // ie. we are creating a new day
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             
             day = Day(context: context)
@@ -42,62 +42,57 @@ class DayViewController: UIViewController, UITextFieldDelegate {
             day!.id = UUID()
         }
         
+        processDateDifference(date: day!.date!)
+        
+        // update relevant ui elements
         nameTextField.text = day!.name
-        
-        let date = day!.date!
-        
-        // calculate days between today and date
-        let diffData = getDiffData(date: date)
-        print("DIFF DATA\(diffData)")
-        diffInt = diffData.diffInt
-        diffDirection = diffData.diffDirection
-        daysLabel.text = String(diffInt)
-        diffDirectionLabel.text = diffData.diffDirection
         defaultSwitch.isOn = user?.badgeDayId == day!.id
-        
-        datePicker.date = date
+        datePicker.date = day!.date!
     }
     
     
     
     @IBAction func datePickerChanged(_ sender: Any) {
-        let date = datePicker.date
-        // calculate days between today and date
+        processDateDifference(date: datePicker.date)
+    }
+    
+    func processDateDifference(date: Date) {
+        // calculate day difference between selected date and today
         let diffData = getDiffData(date: date)
         diffInt = diffData.diffInt
         diffDirection = diffData.diffDirection
+        
+        // update relevant ui elements
         daysLabel.text = String(diffInt)
         diffDirectionLabel.text = diffData.diffDirection
     }
     
     
-    
     @IBAction func saveTapped(_ sender: Any) {
-        let date = datePicker.date
-        
-        day!.date = date
+        // set Day
+        day!.date = datePicker.date
         day!.name = nameTextField.text
-        
+        day!.isDefault = defaultSwitch.isOn
         
         if defaultSwitch.isOn {
+            // save this day on the primary user
             let user = getPrimaryUser()
             user?.badgeDayId = day?.id
             print("PRIMARY USER: \(user)")
             
-        } else {
-            print("NAH NOTHING INTERESTING...")
+            // set badge because this is the default day
+            UIApplication.shared.applicationIconBadgeNumber = diffInt
             
+            // trigger notification based on this default day
+            triggerBadgeNotification(direction: diffDirection)
+            
+        } else {
+            print("This day is not default, not saving onto primary user")
         }
-        day!.isDefault = defaultSwitch.isOn
         
+        // save Day
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        
-        // set badge
-        UIApplication.shared.applicationIconBadgeNumber = diffInt
-        
-        // trigger notification
-        print("diffDirection: \(diffDirection)")
-        triggerBadgeNotification(direction: diffDirection)
+
         
         // Go back to list view
         navigationController!.popViewController(animated: true)
@@ -109,10 +104,13 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
+        // TODO: Remove the notification if this way the default day
+        
         navigationController!.popViewController(animated: true)
     }
     
     
+    // Make keyboard disappear when "Return" is tapped
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true;

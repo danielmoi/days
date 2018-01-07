@@ -37,7 +37,9 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let day = days[indexPath.row]
-
+        if (isDefaultDay(day: day)) {
+            cell.textLabel?.textColor = UIColor(named: "DefaultDay")
+        }
         cell.textLabel?.text = day.name
         return cell
     }

@@ -37,6 +37,7 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let day = days[indexPath.row]
+
         cell.textLabel?.text = day.name
         return cell
     }
@@ -79,7 +80,7 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
             context.delete(day)
             
             // Remove the notification if this day is the default day
-            if day.isDefault {
+            if (isDefaultDay(day: day)) {
                 print("Is default day, deleting pending notification requests......")
                 let center = UNUserNotificationCenter.current()
                 center.removeAllPendingNotificationRequests()

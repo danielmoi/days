@@ -10,7 +10,7 @@
 - [x] Implement toggle UI for setting default
 - [x] Ensure only one default is set
 - [x] Increment / decrement badge number
-- [ ] Remove all (the one) notifications if the default day is deleted
+- [x] Remove all (the one) notifications if the default day is deleted
 - [ ] Ask for permission when default is saved and we don't have permission
 
 

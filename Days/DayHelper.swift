@@ -10,6 +10,15 @@ import Foundation
 import CoreData
 import UIKit
 
+func isDefaultDay(day: Day) -> Bool {
+    let primaryUser = getPrimaryUser()
+    let id = primaryUser?.badgeDayId
+    if (day.id == id) {
+        return true
+    }
+    return false
+}
+
 func getBadgeDay(dayId: UUID) -> Day? {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     

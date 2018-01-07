@@ -73,7 +73,6 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         // set Day
         day!.date = datePicker.date
         day!.name = nameTextField.text
-        day!.isDefault = defaultSwitch.isOn
         
         if defaultSwitch.isOn {
             // save this day on the primary user
@@ -104,7 +103,7 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         context.delete(day!)
         
         // Remove the notification if this day is the default day
-        if day!.isDefault {
+        if (isDefaultDay(day: day!)) {
             print("Is default day, deleting pending notification requests......")
             let center = UNUserNotificationCenter.current()
             center.removeAllPendingNotificationRequests()

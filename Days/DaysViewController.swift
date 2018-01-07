@@ -38,9 +38,24 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "DayCell", for: indexPath) as! DayCellTableViewCell
         
         let day = days[indexPath.row]
+        
+        let data = getDiffData(date: day.date!)
+        
+        // Day Name
         cell.dayNameLabel.text = day.name
+        cell.dayDirectionLabel.text = "\(String(data.diffInt)) \(data.diffDirection)"
+        
+        // Day Direction
+        var fnt = UIFont.systemFont(ofSize: 14.0, weight: UIFont.Weight.thin)
+        if let dsc = fnt.fontDescriptor.withSymbolicTraits(.traitItalic) {
+            fnt = UIFont(descriptor: dsc, size: 0)
+        }
+        cell.dayDirectionLabel.font = fnt
+        
+        // Default Day
         if (isDefaultDay(day: day)) {
             cell.dayNameLabel?.textColor = UIColor(named: "DefaultDay")
+            cell.dayDirectionLabel?.textColor = UIColor(named: "DefaultDay")
         }
 
         return cell

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class DaysViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -76,6 +77,14 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
             let day = days[indexPath.row]
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             context.delete(day)
+            
+            // Remove the notification if this day is the default day
+            if day.isDefault {
+                print("Is default day, deleting pending notification requests......")
+                let center = UNUserNotificationCenter.current()
+                center.removeAllPendingNotificationRequests()
+            }
+            
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
             do {
@@ -84,14 +93,5 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
             } catch {}
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

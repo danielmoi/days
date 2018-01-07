@@ -20,8 +20,8 @@
 - [x] Delete day
 - [x] Swipe to delete
 - [x] Select which one to set the badge to
-- [ ] Set default day to a different color in list view
-- [ ] Have day difference for all days in list view
+- [x] Set default day to a different color in list view
+- [x] Have day difference for all days in list view
 
 
 ## UX

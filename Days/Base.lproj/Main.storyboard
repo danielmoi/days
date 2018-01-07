@@ -190,7 +190,24 @@
                     <view key="view" contentMode="scaleToFill" id="cpx-Uj-3d0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Badges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcc-8x-9Lf">
+                                <rect key="frame" x="50" y="114" width="114" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qqM-c6-Byu">
+                                <rect key="frame" x="276" y="109" width="51" height="31"/>
+                            </switch>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hcc-8x-9Lf" firstAttribute="top" secondItem="tKm-Uf-Tuo" secondAttribute="top" constant="50" id="OiH-2n-aMH"/>
+                            <constraint firstItem="tKm-Uf-Tuo" firstAttribute="trailing" secondItem="qqM-c6-Byu" secondAttribute="trailing" constant="50" id="RAa-JA-NOg"/>
+                            <constraint firstItem="hcc-8x-9Lf" firstAttribute="leading" secondItem="tKm-Uf-Tuo" secondAttribute="leading" constant="50" id="Sas-4e-jbI"/>
+                            <constraint firstItem="qqM-c6-Byu" firstAttribute="centerY" secondItem="hcc-8x-9Lf" secondAttribute="centerY" id="k9A-ZB-zQB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tKm-Uf-Tuo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="Ira-so-Xem"/>
@@ -221,7 +238,7 @@
         <scene sceneID="hkh-5p-NWY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XeL-xG-P6g" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Days" id="QEe-Mh-kq2"/>
+                    <tabBarItem key="tabBarItem" title="Days" image="home" id="QEe-Mh-kq2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cHj-SA-Vff">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -240,7 +257,7 @@
         <scene sceneID="sBw-Ul-bDo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kub-YF-ydz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="qjL-Wk-djn"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="qjL-Wk-djn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eD8-8A-kVR">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -257,6 +274,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="home" width="23" height="23"/>
+        <image name="settings" width="23" height="23"/>
         <image name="trash" width="40" height="56"/>
     </resources>
 </document>

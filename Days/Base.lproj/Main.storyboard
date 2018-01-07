@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XeL-xG-P6g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CIs-0o-tpA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832.8" y="40.929535232383813"/>
+            <point key="canvasLocation" x="3090" y="603"/>
         </scene>
         <!--Days-->
         <scene sceneID="iK3-hI-1R5">
@@ -115,7 +115,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IfV-dB-8Gf">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayCell" id="go3-9i-gZy" customClass="DayCellTableViewCell" customModule="Days" customModuleProvider="target">
@@ -181,12 +181,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONg-zt-atK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087.2" y="40.929535232383813"/>
+            <point key="canvasLocation" x="2180" y="604"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Settings-->
+        <scene sceneID="Mk1-vE-xTj">
+            <objects>
+                <viewController title="Settings" id="tgQ-Ru-pnW" customClass="SettingsViewController" customModule="Days" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cpx-Uj-3d0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="tKm-Uf-Tuo"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="Ira-so-Xem"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gvo-3z-izc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2180" y="1380"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4Sz-1H-3eW">
+            <objects>
+                <tabBarController id="CIs-0o-tpA" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ajT-xP-4eG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="XeL-xG-P6g" kind="relationship" relationship="viewControllers" id="Rwl-1Z-aZC"/>
+                        <segue destination="Kub-YF-ydz" kind="relationship" relationship="viewControllers" id="NUX-al-9UB"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ep-Df-aw3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328" y="1049"/>
+        </scene>
+        <!--Days-->
         <scene sceneID="hkh-5p-NWY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XeL-xG-P6g" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Days" id="QEe-Mh-kq2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cHj-SA-Vff">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -199,7 +234,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knQ-QM-NRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282" y="41"/>
+            <point key="canvasLocation" x="1279" y="604"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="sBw-Ul-bDo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kub-YF-ydz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" id="qjL-Wk-djn"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eD8-8A-kVR">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tgQ-Ru-pnW" kind="relationship" relationship="rootViewController" id="0L7-j3-eOj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JMK-n0-yXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1280" y="1380.8095952023989"/>
         </scene>
     </scenes>
     <resources>

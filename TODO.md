@@ -26,4 +26,4 @@
 
 ## UX
 - [x] Make keyboard go away when finished
-- [ ] Start textfield with a capital letter
+- [x] Start textfield with a capital letter

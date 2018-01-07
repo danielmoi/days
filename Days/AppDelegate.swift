@@ -27,15 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         center.getPendingNotificationRequests { (request) in
-            print("request ***********:\(request)")
+            print("requests ***********:\(request)")
         }
         
+        // create our (solitary) "primary" user
         let user = getPrimaryUser()
         if !(user != nil) {
             createPrimaryUser()
         }
-        
-        
         
         return true
     }
@@ -105,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
-                print("Unresolved error \(nserror), \(nserror.userInfo)")
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }

@@ -17,8 +17,8 @@ import UserNotifications
 // Trigger when a day is saved as the default
 func triggerBadgeNotification(direction: String) {
     var dateComponents = DateComponents()
-    dateComponents.hour = 11
-    dateComponents.minute = 37
+    dateComponents.hour = 0
+    dateComponents.minute = 0
     
     let content = UNMutableNotificationContent()
     
@@ -31,6 +31,8 @@ func triggerBadgeNotification(direction: String) {
     }
     
     content.categoryIdentifier = "badgeIdentifier"
+    
+    // ensure badge is updated even when app is running
     content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
     
     

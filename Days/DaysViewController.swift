@@ -35,12 +35,14 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DayCell", for: indexPath) as! DayCellTableViewCell
+        
         let day = days[indexPath.row]
+        cell.dayNameLabel.text = day.name
         if (isDefaultDay(day: day)) {
-            cell.textLabel?.textColor = UIColor(named: "DefaultDay")
+            cell.dayNameLabel?.textColor = UIColor(named: "DefaultDay")
         }
-        cell.textLabel?.text = day.name
+
         return cell
     }
     

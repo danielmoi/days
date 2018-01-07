@@ -31,6 +31,7 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         nameTextField.delegate = self
+        nameTextField.autocapitalizationType = .sentences
         
         let user = getPrimaryUser()
         

@@ -26,8 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Enable or disable features based on authorization.
         }
         
-        center.getPendingNotificationRequests { (request) in
-            print("requests ***********:\(request)")
+        center.getPendingNotificationRequests { (requests) in
+            print("Pending Notifications ***********:\(requests)")
+        }
+        
+        center.getDeliveredNotifications { (requests) in
+            print("Delivered Notifications: \(requests)")
         }
         
         // create our (solitary) "primary" user

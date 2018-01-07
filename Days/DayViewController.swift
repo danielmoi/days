@@ -9,6 +9,7 @@
 import UIKit
 
 import CoreData
+import UserNotifications
 
 
 class DayViewController: UIViewController, UITextFieldDelegate {
@@ -102,9 +103,16 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         context.delete(day!)
         
+        // Remove the notification if this day is the default day
+        if day!.isDefault {
+            print("Is default day, deleting pending notification requests......")
+            let center = UNUserNotificationCenter.current()
+            center.removeAllPendingNotificationRequests()
+        }
+        
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
-        // TODO: Remove the notification if this way the default day
+
         
         navigationController!.popViewController(animated: true)
     }

@@ -103,7 +103,6 @@
                         <outlet property="datePicker" destination="QRx-Me-oHt" id="FPN-bW-Ewk"/>
                         <outlet property="daysLabel" destination="H2m-FX-AgF" id="lQe-Ct-m7n"/>
                         <outlet property="defaultSwitch" destination="a1l-gx-6cQ" id="Mut-a9-wLt"/>
-                        <outlet property="deleteTapped" destination="hZ7-MB-dd0" id="wZd-Ix-3OV"/>
                         <outlet property="diffDirectionLabel" destination="pRb-is-ZeP" id="5N8-Ax-Q19"/>
                         <outlet property="nameTextField" destination="2lt-xB-Q8j" id="2FK-6n-FLz"/>
                     </connections>
@@ -259,8 +258,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Kub-YF-ydz" kind="relationship" relationship="viewControllers" id="NUX-al-9UB"/>
                         <segue destination="XeL-xG-P6g" kind="relationship" relationship="viewControllers" id="Rwl-1Z-aZC"/>
+                        <segue destination="Kub-YF-ydz" kind="relationship" relationship="viewControllers" id="NUX-al-9UB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ep-Df-aw3" userLabel="First Responder" sceneMemberID="firstResponder"/>

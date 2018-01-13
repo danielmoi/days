@@ -34,12 +34,14 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         nameTextField.autocapitalizationType = .sentences
         
         let user = getPrimaryUser()
+        print("user:\(user)")
         
         if (day == nil) {
             // ie. we are creating a new day
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             
             day = Day(context: context)
+            print("day:\(day)")
             day!.date = Date()
             day!.id = UUID()
         }
@@ -109,6 +111,9 @@ class DayViewController: UIViewController, UITextFieldDelegate {
             print("Is default day, deleting pending notification requests......")
             let center = UNUserNotificationCenter.current()
             center.removeAllPendingNotificationRequests()
+            
+            // Reset Badge
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()

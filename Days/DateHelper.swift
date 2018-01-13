@@ -33,15 +33,14 @@ func getDiffDirection(difference: Int) -> String {
 func getDiffData(date: Date) -> (diffInt: Int, diffDirection: String) {
     let difference = getDiffInt(date: date)
     let diffInt = abs(difference)
-    let diffDirection = "days \(getDiffDirection(difference: difference))"
+    
+    var diffDirection = ""
+    if diffInt == 1 {
+        diffDirection = "day \(getDiffDirection(difference: difference))"
+    } else {
+        diffDirection = "days \(getDiffDirection(difference: difference))"
+    }
+    
     return (diffInt, diffDirection)
 }
 
-// have 2 separate functions
-
-/* return a dictionary
- 
- ["diffInt": 3, "diffDisplay": "since"]
- 
- 
- */

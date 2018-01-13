@@ -55,3 +55,13 @@ Solution [180107]
 
 ## Text Field Capitalization [180107]
 - `nameTextField.autocapitalizationType = .sentences`
+
+## Notification Center [180113]
+- use this to update the UILabel.text inside a VC when user changes their
+  notification settings
+
+## Stack View [180113]
+- use this to organise elements as a group
+
+## DispatchQueue.main.async {} [180113]
+- use this to force app to execute on the main thread

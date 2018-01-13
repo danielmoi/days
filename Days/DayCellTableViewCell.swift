@@ -10,7 +10,7 @@ import UIKit
 
 class DayCellTableViewCell: UITableViewCell {
 
-    // collections
+    // connections
     @IBOutlet weak var dayNameLabel: UILabel!
     @IBOutlet weak var dayDirectionLabel: UILabel!
     

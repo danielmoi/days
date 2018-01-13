@@ -54,4 +54,4 @@ Solution [180107]
 
 
 ## Text Field Capitalization [180107]
-- `textField.autocapitalizationType = UITextAutocapitalizationTypeWords`
+- `nameTextField.autocapitalizationType = .sentences`

@@ -26,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Enable or disable features based on authorization.
         }
         
+        
+        
+        
+        
         center.getPendingNotificationRequests { (requests) in
             print("Pending Notifications ***********:\(requests)")
         }
@@ -42,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -55,6 +61,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings { (settings) in
+            print("settings INSIDE APP DELEGATE!!!!!!!: \(settings)")
+            
+            
+            let badgeEnabled = (settings.badgeSetting == .enabled)
+            
+            
+            if settings.badgeSetting == .enabled {
+                print("ENABLED INSIDE APP DELEGATE!!!!!!!!")
+                NotificationCenter.default.post(name: Notification.Name.notificationsOn, object: nil)
+            } else {
+                print("NOT NOT NOT ENABLED INSIDE APP DELEGATE!!!!!!!!")
+                NotificationCenter.default.post(name: Notification.Name.notificationsOff, object: nil)
+            }
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

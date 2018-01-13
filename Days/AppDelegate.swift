@@ -63,10 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("settings INSIDE APP DELEGATE!!!!!!!: \(settings)")          
             
             if settings.badgeSetting == .enabled {
-                print("ENABLED INSIDE APP DELEGATE!!!!!!!!")
                 NotificationCenter.default.post(name: Notification.Name.notificationsOn, object: nil)
             } else {
-                print("NOT NOT NOT ENABLED INSIDE APP DELEGATE!!!!!!!!")
                 NotificationCenter.default.post(name: Notification.Name.notificationsOff, object: nil)
             }
         }

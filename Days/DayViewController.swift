@@ -99,6 +99,7 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         navigationController!.popViewController(animated: true)
     }
     
+    
     @IBAction func deleteTapped(_ sender: Any) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         context.delete(day!)
@@ -112,11 +113,8 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
-
-        
         navigationController!.popViewController(animated: true)
     }
-    
     
     // Make keyboard disappear when "Return" is tapped
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

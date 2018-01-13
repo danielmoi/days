@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Day View Controller-->
+        <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="DayViewController" customModule="Days" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,13 +20,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days Since" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRb-is-ZeP">
-                                <rect key="frame" x="145" y="199" width="85" height="21"/>
+                                <rect key="frame" x="145.5" y="169" width="84.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2lt-xB-Q8j">
-                                <rect key="frame" x="87.5" y="245" width="200" height="30"/>
+                                <rect key="frame" x="87.5" y="209.5" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="gLv-e5-4Fk"/>
                                 </constraints>
@@ -35,7 +35,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="QRx-Me-oHt">
-                                <rect key="frame" x="27.5" y="325" width="320" height="216"/>
+                                <rect key="frame" x="27.5" y="249.5" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="536464989.31921601">
                                     <!--2018-01-01 02:03:09 +0000-->
                                 </date>
@@ -44,60 +44,66 @@
                                 </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1s-XL-I27">
-                                <rect key="frame" x="170.5" y="616" width="34" height="30"/>
+                                <rect key="frame" x="170.5" y="540.5" width="34" height="30"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J9q-Dl-46G"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2m-FX-AgF">
-                                <rect key="frame" x="171" y="114" width="33.5" height="60"/>
+                                <rect key="frame" x="171" y="89" width="33.5" height="60"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olC-6p-Pgt">
-                                <rect key="frame" x="310" y="591" width="40" height="56"/>
-                                <state key="normal" image="trash">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F7H-G3-TrZ"/>
-                                </connections>
-                            </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a1l-gx-6cQ">
-                                <rect key="frame" x="257" y="549" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set as default" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlq-My-cVK">
-                                <rect key="frame" x="127" y="549" width="105" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hep-id-SvV">
+                                <rect key="frame" x="87.5" y="476" width="200" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set as default" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlq-My-cVK">
+                                        <rect key="frame" x="0.0" y="0.0" width="151" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a1l-gx-6cQ">
+                                        <rect key="frame" x="151" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="5XZ-Yo-yVW"/>
+                                    <constraint firstItem="a1l-gx-6cQ" firstAttribute="leading" secondItem="dlq-My-cVK" secondAttribute="trailing" constant="50" id="T3P-TI-CfW"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2lt-xB-Q8j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ATC-hI-7fK"/>
                             <constraint firstItem="QRx-Me-oHt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BcW-vw-Z0F"/>
                             <constraint firstItem="H2m-FX-AgF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MX9-oA-u0m"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="olC-6p-Pgt" secondAttribute="trailing" constant="25" id="Urk-Tm-ukm"/>
+                            <constraint firstItem="Hep-id-SvV" firstAttribute="top" secondItem="QRx-Me-oHt" secondAttribute="bottom" constant="10" id="RTd-SR-Jpy"/>
                             <constraint firstItem="pRb-is-ZeP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ygl-wA-vhm"/>
-                            <constraint firstItem="2lt-xB-Q8j" firstAttribute="top" secondItem="pRb-is-ZeP" secondAttribute="bottom" constant="25" id="dWb-5r-6e2"/>
-                            <constraint firstItem="H2m-FX-AgF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="gnd-FI-Be8"/>
-                            <constraint firstItem="pRb-is-ZeP" firstAttribute="top" secondItem="H2m-FX-AgF" secondAttribute="bottom" constant="25" id="mbi-z8-rI8"/>
-                            <constraint firstItem="QRx-Me-oHt" firstAttribute="top" secondItem="2lt-xB-Q8j" secondAttribute="bottom" constant="50" id="p5x-d1-qSB"/>
+                            <constraint firstItem="2lt-xB-Q8j" firstAttribute="top" secondItem="pRb-is-ZeP" secondAttribute="bottom" constant="20" id="dWb-5r-6e2"/>
+                            <constraint firstItem="Hep-id-SvV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eEz-Ky-Jxl"/>
+                            <constraint firstItem="H2m-FX-AgF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="gnd-FI-Be8"/>
+                            <constraint firstItem="pRb-is-ZeP" firstAttribute="top" secondItem="H2m-FX-AgF" secondAttribute="bottom" constant="20" id="mbi-z8-rI8"/>
+                            <constraint firstItem="QRx-Me-oHt" firstAttribute="top" secondItem="2lt-xB-Q8j" secondAttribute="bottom" constant="10" id="p5x-d1-qSB"/>
                             <constraint firstItem="A1s-XL-I27" firstAttribute="top" secondItem="QRx-Me-oHt" secondAttribute="bottom" constant="75" id="qLZ-3v-C89"/>
-                            <constraint firstItem="olC-6p-Pgt" firstAttribute="top" secondItem="QRx-Me-oHt" secondAttribute="bottom" constant="50" id="s9a-Lo-Jdh"/>
                             <constraint firstItem="A1s-XL-I27" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vnB-Lv-fdB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Oo5-gn-YNB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="hZ7-MB-dd0">
+                            <connections>
+                                <action selector="deleteTapped:" destination="BYZ-38-t0r" id="wDB-23-DTd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="QRx-Me-oHt" id="FPN-bW-Ewk"/>
                         <outlet property="daysLabel" destination="H2m-FX-AgF" id="lQe-Ct-m7n"/>
                         <outlet property="defaultSwitch" destination="a1l-gx-6cQ" id="Mut-a9-wLt"/>
+                        <outlet property="deleteTapped" destination="hZ7-MB-dd0" id="wZd-Ix-3OV"/>
                         <outlet property="diffDirectionLabel" destination="pRb-is-ZeP" id="5N8-Ax-Q19"/>
                         <outlet property="nameTextField" destination="2lt-xB-Q8j" id="2FK-6n-FLz"/>
                     </connections>
@@ -147,6 +153,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="Ifh-Rf-kFY" secondAttribute="trailing" id="1dA-e2-FOj"/>
                                                 <constraint firstItem="Ifh-Rf-kFY" firstAttribute="centerY" secondItem="sc8-4c-JfR" secondAttribute="centerY" id="AUi-R7-jKu"/>
                                                 <constraint firstItem="xXj-6a-ySc" firstAttribute="leading" secondItem="sc8-4c-JfR" secondAttribute="leadingMargin" id="Cbj-ei-yhN"/>
+                                                <constraint firstItem="Ifh-Rf-kFY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xXj-6a-ySc" secondAttribute="trailing" constant="10" id="l1J-FF-hnH"/>
                                                 <constraint firstItem="xXj-6a-ySc" firstAttribute="centerY" secondItem="sc8-4c-JfR" secondAttribute="centerY" id="p6H-hg-MjW"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -302,6 +309,5 @@
     <resources>
         <image name="home" width="23" height="23"/>
         <image name="settings" width="23" height="23"/>
-        <image name="trash" width="40" height="56"/>
     </resources>
 </document>

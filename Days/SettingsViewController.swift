@@ -14,6 +14,7 @@ class SettingsViewController: UIViewController, UNUserNotificationCenterDelegate
     // connections
     @IBOutlet weak var notificationStateLabel: UILabel!
     @IBOutlet weak var explanationLabel: UILabel!
+    @IBOutlet weak var redirectButton: UIButton!
     
     override func viewDidLoad() {
         print("WE IN DID LOAD")
@@ -31,13 +32,11 @@ class SettingsViewController: UIViewController, UNUserNotificationCenterDelegate
             
             if settings.badgeSetting == .enabled {
                 DispatchQueue.main.async {
-                    self.notificationStateLabel.text = "ON"
-                    self.explanationLabel.text = "This means that the badge count is enabled, and will sync with the count of your default day"
+                    self.notificationsOnAction()
                 }
             } else {
                 DispatchQueue.main.async {
-                    self.notificationStateLabel.text = "OFF"
-                    self.explanationLabel.text = "This means that the badge count is not enabled. Turn your notification setting on to enable this feature"
+                    self.notificationsOffAction()
                 }
                 
             }
@@ -54,15 +53,26 @@ class SettingsViewController: UIViewController, UNUserNotificationCenterDelegate
     @objc func setNotificationsOff(notification: NSNotification) {
         print("inside OFF")
         DispatchQueue.main.async {
-            self.notificationStateLabel.text = "OFF"
+            self.notificationsOffAction()
         }
     }
     @objc func setNotificationsOn(notification: NSNotification) {
         print("inside ON")
         DispatchQueue.main.async {
-            self.notificationStateLabel.text = "ON"
+            self.notificationsOnAction()
         }
         
+    }
+    
+    func notificationsOffAction() {
+         self.notificationStateLabel.text = "OFF"
+        self.explanationLabel.text = "This means that the badge count is not enabled. Turn your notification setting on to enable this feature"
+        self.redirectButton.isHidden = false
+    }
+    func notificationsOnAction() {
+        self.notificationStateLabel.text = "ON"
+        self.explanationLabel.text = "This means that the badge count is enabled, and will sync with the count of your default day"
+        self.redirectButton.isHidden = true
     }
     
     
@@ -80,7 +90,6 @@ class SettingsViewController: UIViewController, UNUserNotificationCenterDelegate
             print("Delivered Notifications: \(requests)")
         }
         UIApplication.shared.open(NSURL(string: UIApplicationOpenSettingsURLString)! as URL, options: [:]) { (bool) in
-            print("bool:\(bool)")
         }
         
     }

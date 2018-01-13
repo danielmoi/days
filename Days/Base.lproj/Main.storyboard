@@ -209,8 +209,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4j-q8-wEX">
-                                <rect key="frame" x="50" y="261" width="181" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4j-q8-wEX">
+                                <rect key="frame" x="50" y="282" width="181" height="30"/>
                                 <state key="normal" title="Go to Notification Settings"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="tgQ-Ru-pnW" eventType="touchUpInside" id="VCe-Cg-Vfl"/>
@@ -235,6 +235,7 @@
                     <connections>
                         <outlet property="explanationLabel" destination="vb2-dx-M5y" id="wnV-jX-tpL"/>
                         <outlet property="notificationStateLabel" destination="ove-HU-8h9" id="z5w-BX-Fpn"/>
+                        <outlet property="redirectButton" destination="a4j-q8-wEX" id="k9X-gt-heM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvo-3z-izc" userLabel="First Responder" sceneMemberID="firstResponder"/>

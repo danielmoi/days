@@ -209,8 +209,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4j-q8-wEX">
-                                <rect key="frame" x="50" y="282" width="181" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4j-q8-wEX">
+                                <rect key="frame" x="50" y="261" width="181" height="30"/>
                                 <state key="normal" title="Go to Notification Settings"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="tgQ-Ru-pnW" eventType="touchUpInside" id="VCe-Cg-Vfl"/>

@@ -17,18 +17,16 @@ class SettingsViewController: UIViewController, UNUserNotificationCenterDelegate
     @IBOutlet weak var redirectButton: UIButton!
     
     override func viewDidLoad() {
-        print("WE IN DID LOAD")
         super.viewDidLoad()
         
+        // UI elements
         notificationStateLabel.textColor = UIColor(named: "DefaultDay")
         explanationLabel.numberOfLines = 0
         explanationLabel.lineBreakMode = .byWordWrapping
         
+        // Check current notification settings
         let center = UNUserNotificationCenter.current()
         center.getNotificationSettings { (settings) in
-            print("OK................. inside this little function")
-            print("settings: \(settings)")
-            
             
             if settings.badgeSetting == .enabled {
                 DispatchQueue.main.async {
@@ -41,23 +39,19 @@ class SettingsViewController: UIViewController, UNUserNotificationCenterDelegate
                 
             }
         }
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(setNotificationsOn(notification:)), name: .notificationsOn, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setNotificationsOff(notification:)), name: .notificationsOff, object: nil)
-        
-        
         center.delegate = self
         
+        // Listen to NotificationCenter
+        NotificationCenter.default.addObserver(self, selector: #selector(setNotificationsOn(notification:)), name: .notificationsOn, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setNotificationsOff(notification:)), name: .notificationsOff, object: nil)
     }
     
     @objc func setNotificationsOff(notification: NSNotification) {
-        print("inside OFF")
         DispatchQueue.main.async {
             self.notificationsOffAction()
         }
     }
     @objc func setNotificationsOn(notification: NSNotification) {
-        print("inside ON")
         DispatchQueue.main.async {
             self.notificationsOnAction()
         }
@@ -65,7 +59,7 @@ class SettingsViewController: UIViewController, UNUserNotificationCenterDelegate
     }
     
     func notificationsOffAction() {
-         self.notificationStateLabel.text = "OFF"
+        self.notificationStateLabel.text = "OFF"
         self.explanationLabel.text = "This means that the badge count is not enabled. Turn your notification setting on to enable this feature"
         self.redirectButton.isHidden = false
     }
@@ -78,17 +72,7 @@ class SettingsViewController: UIViewController, UNUserNotificationCenterDelegate
     
     
     @IBAction func buttonTapped(_ sender: Any) {
-        let center = UNUserNotificationCenter.current()
-        center.getNotificationSettings { (settings) in
-            print("settings: \(settings)")
-        }
-        center.getPendingNotificationRequests { (requests) in
-            print("Pending Notifications ***********:\(requests)")
-        }
-        
-        center.getDeliveredNotifications { (requests) in
-            print("Delivered Notifications: \(requests)")
-        }
+        // Redirect
         UIApplication.shared.open(NSURL(string: UIApplicationOpenSettingsURLString)! as URL, options: [:]) { (bool) in
         }
         

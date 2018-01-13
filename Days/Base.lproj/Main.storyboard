@@ -71,7 +71,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="5XZ-Yo-yVW"/>
-                                    <constraint firstItem="a1l-gx-6cQ" firstAttribute="leading" secondItem="dlq-My-cVK" secondAttribute="trailing" constant="50" id="T3P-TI-CfW"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -197,26 +196,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your notifications are:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFp-IM-ca8">
-                                <rect key="frame" x="50" y="139" width="166" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ove-HU-8h9">
-                                <rect key="frame" x="221" y="139" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k60-NB-GIB">
+                                <rect key="frame" x="50" y="139" width="275" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your notifications are: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFp-IM-ca8">
+                                        <rect key="frame" x="0.0" y="0.0" width="170.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ove-HU-8h9">
+                                        <rect key="frame" x="170.5" y="0.0" width="104.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explanation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb2-dx-M5y">
-                                <rect key="frame" x="50" y="190" width="275" height="21"/>
+                                <rect key="frame" x="50" y="190" width="275" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4j-q8-wEX">
-                                <rect key="frame" x="50" y="261" width="181" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4j-q8-wEX">
+                                <rect key="frame" x="50" y="260.5" width="275" height="30"/>
                                 <state key="normal" title="Go to Notification Settings"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="tgQ-Ru-pnW" eventType="touchUpInside" id="VCe-Cg-Vfl"/>
@@ -226,13 +230,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tKm-Uf-Tuo" firstAttribute="trailing" secondItem="vb2-dx-M5y" secondAttribute="trailing" constant="50" id="DZO-mw-DCZ"/>
-                            <constraint firstItem="vb2-dx-M5y" firstAttribute="top" secondItem="dFp-IM-ca8" secondAttribute="bottom" constant="30" id="J6r-jK-xMR"/>
+                            <constraint firstItem="tKm-Uf-Tuo" firstAttribute="trailing" secondItem="k60-NB-GIB" secondAttribute="trailing" constant="50" id="OpS-KK-gMq"/>
                             <constraint firstItem="vb2-dx-M5y" firstAttribute="leading" secondItem="tKm-Uf-Tuo" secondAttribute="leading" constant="50" id="QrG-lS-ki0"/>
+                            <constraint firstItem="k60-NB-GIB" firstAttribute="leading" secondItem="tKm-Uf-Tuo" secondAttribute="leading" constant="50" id="UY4-ig-Nko"/>
                             <constraint firstItem="a4j-q8-wEX" firstAttribute="leading" secondItem="tKm-Uf-Tuo" secondAttribute="leading" constant="50" id="X3c-iP-64E"/>
-                            <constraint firstItem="dFp-IM-ca8" firstAttribute="top" secondItem="tKm-Uf-Tuo" secondAttribute="top" constant="75" id="bXD-RJ-B59"/>
-                            <constraint firstItem="dFp-IM-ca8" firstAttribute="leading" secondItem="tKm-Uf-Tuo" secondAttribute="leading" constant="50" id="cLe-78-34F"/>
-                            <constraint firstItem="ove-HU-8h9" firstAttribute="leading" secondItem="dFp-IM-ca8" secondAttribute="trailing" constant="5" id="ufx-Qz-DmL"/>
-                            <constraint firstItem="ove-HU-8h9" firstAttribute="top" secondItem="tKm-Uf-Tuo" secondAttribute="top" constant="75" id="x63-XX-qTA"/>
+                            <constraint firstItem="tKm-Uf-Tuo" firstAttribute="trailing" secondItem="a4j-q8-wEX" secondAttribute="trailing" constant="50" id="hY2-Jc-agz"/>
+                            <constraint firstItem="vb2-dx-M5y" firstAttribute="top" secondItem="k60-NB-GIB" secondAttribute="bottom" constant="30" id="lHN-Y2-62x"/>
+                            <constraint firstItem="k60-NB-GIB" firstAttribute="top" secondItem="tKm-Uf-Tuo" secondAttribute="top" constant="75" id="noi-Fy-4KB"/>
                             <constraint firstItem="a4j-q8-wEX" firstAttribute="top" secondItem="vb2-dx-M5y" secondAttribute="bottom" constant="50" id="zmF-Jw-4wU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tKm-Uf-Tuo"/>

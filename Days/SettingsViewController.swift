@@ -10,24 +10,36 @@ import UIKit
 import UserNotifications
 
 class SettingsViewController: UIViewController, UNUserNotificationCenterDelegate {
-
+    
     // connections
-    @IBOutlet weak var badgeSwitch: UISwitch!
     @IBOutlet weak var notificationStateLabel: UILabel!
+    @IBOutlet weak var explanationLabel: UILabel!
     
     override func viewDidLoad() {
         print("WE IN DID LOAD")
         super.viewDidLoad()
         
+        notificationStateLabel.textColor = UIColor(named: "DefaultDay")
+        explanationLabel.numberOfLines = 0
+        explanationLabel.lineBreakMode = .byWordWrapping
+        
         let center = UNUserNotificationCenter.current()
         center.getNotificationSettings { (settings) in
+            print("OK................. inside this little function")
             print("settings: \(settings)")
             
-            let badgeEnabled = (settings.badgeSetting == .enabled)
-            self.badgeSwitch.isOn = badgeEnabled
             
             if settings.badgeSetting == .enabled {
-                print("ENABLED")
+                DispatchQueue.main.async {
+                    self.notificationStateLabel.text = "ON"
+                    self.explanationLabel.text = "This means that the badge count is enabled, and will sync with the count of your default day"
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.notificationStateLabel.text = "OFF"
+                    self.explanationLabel.text = "This means that the badge count is not enabled. Turn your notification setting on to enable this feature"
+                }
+                
             }
         }
         
@@ -70,22 +82,7 @@ class SettingsViewController: UIViewController, UNUserNotificationCenterDelegate
         UIApplication.shared.open(NSURL(string: UIApplicationOpenSettingsURLString)! as URL, options: [:]) { (bool) in
             print("bool:\(bool)")
         }
-
-    }
-    
-    @IBAction func switchTapped(_ sender: Any) {
-        let center = UNUserNotificationCenter.current()
-        if badgeSwitch.isOn {
-            print("ON")
-            
-            center.requestAuthorization(options: [.sound, .alert, .badge], completionHandler: { (granted, error) in
-                print("Granted:\(granted)")
-                print("Error: \(error)")
-            })
-        } else {
-            print("OFF")
-            center.removeAllPendingNotificationRequests()
-        }
         
     }
+    
 }

@@ -25,10 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             // Enable or disable features based on authorization.
         }
-        
-        
-        
-        
+
         
         center.getPendingNotificationRequests { (requests) in
             print("Pending Notifications ***********:\(requests)")
@@ -63,11 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         let center = UNUserNotificationCenter.current()
         center.getNotificationSettings { (settings) in
-            print("settings INSIDE APP DELEGATE!!!!!!!: \(settings)")
-            
-            
-            let badgeEnabled = (settings.badgeSetting == .enabled)
-            
+            print("settings INSIDE APP DELEGATE!!!!!!!: \(settings)")          
             
             if settings.badgeSetting == .enabled {
                 print("ENABLED INSIDE APP DELEGATE!!!!!!!!")

@@ -65,3 +65,17 @@ Solution [180107]
 
 ## DispatchQueue.main.async {} [180113]
 - use this to force app to execute on the main thread
+
+## UI Button [180119]
+Implement a solid button
+
+
+## Constants [180119]
+For colors etc, implement using structs
+
+## Hide UIBarButtonItem [180119]
+Use a STRONG outlet
+
+https://cocoacasts.com/should-outlets-be-weak-or-strong/
+
+It doesn’t hurt to declare an outlet as strong. It’s what Apple recommends and it ensures the outlet has a value for as long the view controller is alive.

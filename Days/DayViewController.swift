@@ -21,6 +21,7 @@ class DayViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var diffDirectionLabel: UILabel!
     @IBOutlet weak var defaultSwitch: UISwitch!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet var deleteButton: UIBarButtonItem!
     
     
     // properties
@@ -47,10 +48,13 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         let user = getPrimaryUser()
         
         if (day != nil) {
-            // ie. this is a new day
+            // existing date, so overwrite
             date = day!.date!
             id = day!.id!
             name = day!.name!
+        } else {
+            // a new day
+            self.navigationItem.rightBarButtonItem = nil
         }
         
         processDateDifference(date: date)
@@ -70,12 +74,14 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
+
     
-    
-    
-    @IBAction func datePickerChanged(_ sender: Any) {
-        processDateDifference(date: datePicker.date)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Make keyboard disappear when "Return" is tapped
+        self.view.endEditing(true)
+        return true;
     }
+
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
@@ -100,6 +106,10 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         diffDirectionLabel.text = diffData.diffDirection
     }
     
+    // actions
+    @IBAction func datePickerChanged(_ sender: Any) {
+        processDateDifference(date: datePicker.date)
+    }
     
     @IBAction func saveTapped(_ sender: Any) {
         // set Day
@@ -156,11 +166,7 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         navigationController!.popViewController(animated: true)
     }
     
-    // Make keyboard disappear when "Return" is tapped
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return true;
-    }
+
     
 }
 

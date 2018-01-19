@@ -29,3 +29,11 @@
 - [x] Start textfield with a capital letter
 - [ ] Implement "soft alert" before showing permissions dialog?
 https://stackoverflow.com/questions/41946212/display-uilocalnotification-request-after-user-clicked-dont-allow
+
+
+## Extra functionality
+- [ ] Add notes to each day, what needs to be done [180119]
+- [ ] Allow sorting of the days (by name)
+- [ ] Allow sorting of the days (by date)
+- [ ] Allow sorting of the days (manual - drag)
+

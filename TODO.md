@@ -38,3 +38,4 @@ https://stackoverflow.com/questions/41946212/display-uilocalnotification-request
 - [ ] Allow sorting of the days (manual - drag)
 - [ ] Update rows after midnight passes, real-time, use timer instead of
   scheduling a local notification? [180120]
+- [ ] Handle long names on list - need to truncate and ellipsis [180120]

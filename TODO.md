@@ -36,4 +36,5 @@ https://stackoverflow.com/questions/41946212/display-uilocalnotification-request
 - [ ] Allow sorting of the days (by name)
 - [ ] Allow sorting of the days (by date)
 - [ ] Allow sorting of the days (manual - drag)
-
+- [ ] Update rows after midnight passes, real-time, use timer instead of
+  scheduling a local notification? [180120]

@@ -41,8 +41,8 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         saveButton.layer.cornerRadius = 4
         
         saveButton.contentEdgeInsets = UIEdgeInsetsMake(10,20,10,20)
-        saveButton.setTitleColor(UIColor.lightGray, for: .disabled)
-        saveButton.setTitleColor(UIColor.white, for: .normal)
+        saveButton.setTitleColor(C.Colors.BtnTextInactive, for: .disabled)
+        saveButton.setTitleColor(C.Colors.BtnText, for: .normal)
         
         let user = getPrimaryUser()
         
@@ -61,11 +61,11 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         datePicker.date = date
         
         if (nameTextField.text?.isEmpty)! {
-            saveButton.backgroundColor = UIColor(named: "ButtonInactive")
+            saveButton.backgroundColor = C.Colors.BtnBgInactive
             saveButton.isEnabled = false
 
         } else {
-            saveButton.backgroundColor = UIColor(named: "ButtonPrimary")
+            saveButton.backgroundColor = C.Colors.BtnBgPrimary
             saveButton.isEnabled = true
         }
         
@@ -80,10 +80,10 @@ class DayViewController: UIViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
         if (newString.isEmpty) {
-            saveButton.backgroundColor = UIColor(named: "ButtonInactive")
+            saveButton.backgroundColor = C.Colors.BtnBgInactive
             saveButton.isEnabled = false
         } else {
-            saveButton.backgroundColor = UIColor(named: "ButtonPrimary")
+            saveButton.backgroundColor = C.Colors.BtnBgPrimary
             saveButton.isEnabled = true
         }
         return true

@@ -54,11 +54,11 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Default Day
         if (isDefaultDay(day: day)) {
-            cell.dayNameLabel?.textColor = UIColor(named: "DefaultDay")
-            cell.dayDirectionLabel?.textColor = UIColor(named: "DefaultDay")
+            cell.dayNameLabel?.textColor = C.Colors.Alert
+            cell.dayDirectionLabel?.textColor = C.Colors.Alert
         } else {
-            cell.dayNameLabel?.textColor = UIColor.black
-            cell.dayDirectionLabel?.textColor = UIColor.black
+            cell.dayNameLabel?.textColor = C.Colors.TextNormal
+            cell.dayDirectionLabel?.textColor = C.Colors.TextNormal
         }
 
         return cell

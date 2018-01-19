@@ -13,6 +13,7 @@
 		1E3AD7C52001E2A800CDE857 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3AD7C42001E2A800CDE857 /* SettingsViewController.swift */; };
 		1E3AD7EC20098C1E00CDE857 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3AD7EB20098C1E00CDE857 /* Notification.swift */; };
 		1E56906D1FFD90C2005460F0 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E56906C1FFD90C2005460F0 /* NotificationHelper.swift */; };
+		1E5D6D3F2011B81600A3FA78 /* GlobalStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5D6D3E2011B81600A3FA78 /* GlobalStruct.swift */; };
 		1E93CCF31FFABF0C003CAD48 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93CCF21FFABF0C003CAD48 /* DateHelper.swift */; };
 		1EB491F31FF76DE40092790D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB491F21FF76DE40092790D /* AppDelegate.swift */; };
 		1EB491F51FF76DE40092790D /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB491F41FF76DE40092790D /* DayViewController.swift */; };
@@ -30,6 +31,7 @@
 		1E3AD7C42001E2A800CDE857 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1E3AD7EB20098C1E00CDE857 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		1E56906C1FFD90C2005460F0 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
+		1E5D6D3E2011B81600A3FA78 /* GlobalStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStruct.swift; sourceTree = "<group>"; };
 		1E93CCF21FFABF0C003CAD48 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		1EB491EF1FF76DE40092790D /* Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EB491F21FF76DE40092790D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				1E56906C1FFD90C2005460F0 /* NotificationHelper.swift */,
 				1E1ACA901FFF735500CA45E8 /* UserHelper.swift */,
 				1E1ACA921FFF7E8500CA45E8 /* DayHelper.swift */,
+				1E5D6D3E2011B81600A3FA78 /* GlobalStruct.swift */,
 				1E93CCF21FFABF0C003CAD48 /* DateHelper.swift */,
 				1EB491FE1FF76DE40092790D /* LaunchScreen.storyboard */,
 				1EB492011FF76DE40092790D /* Info.plist */,
@@ -170,6 +173,7 @@
 				1E1ACA911FFF735500CA45E8 /* UserHelper.swift in Sources */,
 				1E3AD7C32001D2BE00CDE857 /* DayCellTableViewCell.swift in Sources */,
 				1EB491F51FF76DE40092790D /* DayViewController.swift in Sources */,
+				1E5D6D3F2011B81600A3FA78 /* GlobalStruct.swift in Sources */,
 				1EB491F31FF76DE40092790D /* AppDelegate.swift in Sources */,
 				1E3AD7EC20098C1E00CDE857 /* Notification.swift in Sources */,
 				1EB492511FF9E90C0092790D /* DaysViewController.swift in Sources */,

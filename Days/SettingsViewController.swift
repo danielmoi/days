@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController, UNUserNotificationCenterDelegate
         super.viewDidLoad()
         
         // UI elements
-        notificationStateLabel.textColor = UIColor(named: "DefaultDay")
+        notificationStateLabel.textColor = C.Colors.Alert
         explanationLabel.numberOfLines = 0
         explanationLabel.lineBreakMode = .byWordWrapping
         

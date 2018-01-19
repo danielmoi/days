@@ -45,6 +45,7 @@
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1s-XL-I27">
                                 <rect key="frame" x="170.5" y="540.5" width="34" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J9q-Dl-46G"/>
@@ -104,6 +105,7 @@
                         <outlet property="defaultSwitch" destination="a1l-gx-6cQ" id="Mut-a9-wLt"/>
                         <outlet property="diffDirectionLabel" destination="pRb-is-ZeP" id="5N8-Ax-Q19"/>
                         <outlet property="nameTextField" destination="2lt-xB-Q8j" id="2FK-6n-FLz"/>
+                        <outlet property="saveButton" destination="A1s-XL-I27" id="zwx-DK-ErF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

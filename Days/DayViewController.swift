@@ -20,44 +20,73 @@ class DayViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var diffDirectionLabel: UILabel!
     @IBOutlet weak var defaultSwitch: UISwitch!
+    @IBOutlet weak var saveButton: UIButton!
+    
     
     // properties
     var diffInt: Int = 0
     var diffDirection: String = ""
     var day: Day? = nil
+    var date: Date = Date()
+    var name: String = ""
+    var id: UUID = UUID()
+    var isDefault: Bool = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         nameTextField.delegate = self
         nameTextField.autocapitalizationType = .sentences
+        saveButton.layer.cornerRadius = 4
+        
+        saveButton.contentEdgeInsets = UIEdgeInsetsMake(10,20,10,20)
+        saveButton.setTitleColor(UIColor.lightGray, for: .disabled)
+        saveButton.setTitleColor(UIColor.white, for: .normal)
         
         let user = getPrimaryUser()
-        print("user:\(user)")
         
-        if (day == nil) {
-            // ie. we are creating a new day
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            
-            day = Day(context: context)
-            print("day:\(day)")
-            day!.date = Date()
-            day!.id = UUID()
+        if (day != nil) {
+            // ie. this is a new day
+            date = day!.date!
+            id = day!.id!
+            name = day!.name!
         }
         
-        processDateDifference(date: day!.date!)
+        processDateDifference(date: date)
         
         // update relevant ui elements
-        nameTextField.text = day!.name
-        defaultSwitch.isOn = user?.badgeDayId == day!.id
-        datePicker.date = day!.date!
+        nameTextField.text = name
+        defaultSwitch.isOn = user?.badgeDayId == id
+        datePicker.date = date
+        
+        if (nameTextField.text?.isEmpty)! {
+            saveButton.backgroundColor = UIColor(named: "ButtonInactive")
+            saveButton.isEnabled = false
+
+        } else {
+            saveButton.backgroundColor = UIColor(named: "ButtonPrimary")
+            saveButton.isEnabled = true
+        }
+        
     }
     
     
     
     @IBAction func datePickerChanged(_ sender: Any) {
         processDateDifference(date: datePicker.date)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+        if (newString.isEmpty) {
+            saveButton.backgroundColor = UIColor(named: "ButtonInactive")
+            saveButton.isEnabled = false
+        } else {
+            saveButton.backgroundColor = UIColor(named: "ButtonPrimary")
+            saveButton.isEnabled = true
+        }
+        return true
     }
     
     func processDateDifference(date: Date) {
@@ -74,14 +103,20 @@ class DayViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveTapped(_ sender: Any) {
         // set Day
+
+        if (day == nil) {
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            day = Day(context: context)
+        }
+        
         day!.date = datePicker.date
         day!.name = nameTextField.text
+        day!.id = id
         
         if defaultSwitch.isOn {
             // save this day on the primary user
             let user = getPrimaryUser()
             user?.badgeDayId = day?.id
-            print("PRIMARY USER: \(user)")
             
             // set badge because this is the default day
             UIApplication.shared.applicationIconBadgeNumber = diffInt

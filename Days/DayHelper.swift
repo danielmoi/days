@@ -19,6 +19,7 @@ func isDefaultDay(day: Day) -> Bool {
     return false
 }
 
+// Not using this
 func getBadgeDay(dayId: UUID) -> Day? {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     

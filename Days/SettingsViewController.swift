@@ -73,7 +73,7 @@ class SettingsViewController: UIViewController, UNUserNotificationCenterDelegate
     
     @IBAction func buttonTapped(_ sender: Any) {
         // Redirect
-        UIApplication.shared.open(NSURL(string: UIApplicationOpenSettingsURLString)! as URL, options: [:]) { (bool) in
+        UIApplication.shared.open(NSURL(string: UIApplication.openSettingsURLString)! as URL, options: [:]) { (bool) in
         }
         
     }

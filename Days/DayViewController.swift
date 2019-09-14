@@ -41,7 +41,7 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         nameTextField.autocapitalizationType = .sentences
         saveButton.layer.cornerRadius = 4
         
-        saveButton.contentEdgeInsets = UIEdgeInsetsMake(10,20,10,20)
+        saveButton.contentEdgeInsets = UIEdgeInsets.init(top: 10,left: 20,bottom: 10,right: 20)
         saveButton.setTitleColor(C.Colors.BtnTextInactive, for: .disabled)
         saveButton.setTitleColor(C.Colors.BtnText, for: .normal)
         
@@ -126,6 +126,7 @@ class DayViewController: UIViewController, UITextFieldDelegate {
         if defaultSwitch.isOn {
             // save this day on the primary user
             let user = getPrimaryUser()
+            
             user?.badgeDayId = day?.id
             
             // set badge because this is the default day

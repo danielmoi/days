@@ -23,17 +23,15 @@ func triggerBadgeNotification(direction: String) {
     let content = UNMutableNotificationContent()
     
     if direction == "days since" {
-        print("SINCE")
         content.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
     } else if direction == "days until" {
-        print("UNTIL")
         content.badge = UIApplication.shared.applicationIconBadgeNumber - 1 as NSNumber
     }
     
     content.categoryIdentifier = "badgeIdentifier"
     
     // ensure badge is updated even when app is running
-    content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
+//    content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
     
     
     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
@@ -46,7 +44,6 @@ func triggerBadgeNotification(direction: String) {
     
     
     center.add(request) { (error) in
-        print("Error in scheduling: \(error)")
     }
 }
 

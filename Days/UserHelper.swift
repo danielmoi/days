@@ -28,7 +28,7 @@ func getPrimaryUser() -> User? {
     var users: [User] = []
     do {
         users = try context.fetch(fetchRequest)
-        print("users:\(users)")
+        
         if users.count == 0 {
             return nil
         }
